@@ -1,13 +1,7 @@
 from turtle import *
 
 
-# Branch develop.
-# Branch for merging working branches.
-
-
-
-# Branch feature-hexagon.
-# Branch for writing a function that draws a regular hexagon based on the width.
+# The function that draws a regular hexagon based on the width.
 def hexagon(x, y, size_length, number, light_1, light_2):
     up()
     goto(x, y)
@@ -48,8 +42,7 @@ def hexagon(x, y, size_length, number, light_1, light_2):
     left(90)
 
 
-# Branch feature-tiling.
-# Branch for writing a function that performs surface tiling with hexagons.
+# The function that performs surface tiling with hexagons.
 # Further function
 number_of_hexagons = int(input())
 side_length = (500 / number_of_hexagons) / (3 ** (1 / 2))
@@ -71,6 +64,5 @@ for p in range(1, number_of_hexagons + 1):
 mainloop()
 
 
-# Branch feature-communication.
-# Branch for writing a function that "talks to the user".
+# The function that "talks to the user".
 
