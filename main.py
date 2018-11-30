@@ -68,37 +68,42 @@ def mosaic(number, length, color_one, color_two):
 # The function that adapts the name of the color for the program.
 def colors(our_color):
     new_color = ''
-    our_color = ' ' + our_color.lower() + ' '
-    while our_color not in ' желтый красный зеленый синий оранжевый пурпурный розовый зелёный жёлтый ':
+    our_color_1 = ' ' + our_color.lower() + ' '
+    while our_color_1 not in ' желтый красный зеленый синий оранжевый пурпурный розовый зелёный жёлтый ':
         our_color = input("'{}' не является верным значением. Пожалуйста, повторите попытку: ".format(our_color))
-        our_color = ' ' + our_color.lower() + ' '
+        our_color_1 = ' ' + our_color.lower() + ' '
     else:
-        if our_color in " желтый жёлтый ":
+        if our_color_1 in " желтый жёлтый ":
             new_color = "khaki"
-        elif our_color in " зеленый зелёный ":
+        elif our_color_1 in " зеленый зелёный ":
             new_color = "palegreen"
-        elif our_color in " красный ":
+        elif our_color_1 in " красный ":
             new_color = "red"
-        elif our_color in " синий ":
+        elif our_color_1 in " синий ":
             new_color = "navy"
-        elif our_color in " оранжевый ":
+        elif our_color_1 in " оранжевый ":
             new_color = "coral"
-        elif our_color in " пурпурный ":
+        elif our_color_1 in " пурпурный ":
             new_color = "mediumvioletred"
-        elif our_color in " розовый ":
+        elif our_color_1 in " розовый ":
             new_color = "hotpink"
         return new_color
 
 
 # The function that "talks to the user".
-
+def number(num):
+    while num.isdigit() == False or int(num) > 20 or int(num) < 4:
+        num = input('Оно должно быть от 4 до 20. Пожалуйста, повторите попытку: ')
+    return int(num)
 
 # Test
+print('Выберете цвет из палитры: желтый, красный, синий, зеленый, розовый, пурпурный, оранжевый.')
 first_color = str(input("Введите первый цвет: "))
 color_1 = colors(first_color)
 second_color = str(input("Введите второй цвет: "))
 color_2 = colors(second_color)
-number_of_hexagons = int(input("Введите количество шестиугольников: "))
-side_length = (500 / number_of_hexagons) / (3 ** (1 / 2))
-mosaic(number_of_hexagons, side_length, color_1, color_2)
+number_of_hexagons = input("Введите количество шестиугольников: ")
+number_hex = number(number_of_hexagons)
+side_length = (500 / number_hex) / (3 ** (1 / 2))
+mosaic(number_hex, side_length, color_1, color_2)
 mainloop()
