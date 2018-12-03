@@ -50,25 +50,26 @@ def mosaic(number, length, color_one, color_two):
     Screen().bgcolor(backcolor)
     for p in range(1, number + 1):
         if p == 3 or p == 7 or p == 11 or p == 15 or p == 19:
-            hexagon(-300, 300 - 1.5 * length * p, length,
+            hexagon(-250, 300 - 1.5 * length * p, length,
                     number, color_one, color_two)
         elif p == 4 or p == 8 or p == 12 or p == 16 or p == 20:
-            hexagon(-300 - ((3 ** (1 / 2)) * length) / 2,
+            hexagon(-250 - ((3 ** (1 / 2)) * length) / 2,
                     300 - 1.5 * length * p, length,
                     number, color_one, color_two)
         elif p % 2 != 0:
-            hexagon(-300, 300 - 1.5 * length * p,
+            hexagon(-250, 300 - 1.5 * length * p,
                     length, number, color_two, color_one)
         else:
-            hexagon(-300 - ((3 ** (1 / 2)) * length) / 2,
+            hexagon(-250 - ((3 ** (1 / 2)) * length) / 2,
                     300 - 1.5 * length * p, length,
                     number, color_two, color_one)
 
 
 
+
 def colors():
     """The function that adapts the name of the color for the program."""
-    our_color = str(input("Введите первый цвет: "))
+    our_color = str(input("Введите цвет: "))
     new_color = ''
     our_color_1 = ' ' + our_color.lower() + ' '
     text = ' черный желтый красный зеленый синий оранжевый' \
@@ -114,6 +115,7 @@ def main():
     color_2 = colors()
     number_hex = number()
     side_length = (500 / number_hex) / (3 ** (1 / 2))
+    setup(500, 500)
     mosaic(number_hex, side_length, color_1, color_2)
     mainloop()
 
